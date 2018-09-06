@@ -180,8 +180,9 @@ export class TagCloudComponent implements OnChanges, AfterContentInit, AfterCont
     if (this._dataArr[0].weight > this._dataArr[this._dataArr.length - 1].weight) {
       // check if strict mode is active
       if (!this.strict) { // Linearly map the original weight to a discrete scale from 1 to 10
-        weight = Math.round((word.weight - this._dataArr[this._dataArr.length - 1].weight) /
-                  (this._dataArr[0].weight - this._dataArr[this._dataArr.length - 1].weight) * 9.0) + 1;
+        weight = word.weight;
+        // weight = Math.round((word.weight - this._dataArr[this._dataArr.length - 1].weight) /
+        //           (this._dataArr[0].weight - this._dataArr[this._dataArr.length - 1].weight) * 9.0) + 1;
       } else { // use given value for weigth directly
         // fallback to 10
         if (word.weight > 10) {
